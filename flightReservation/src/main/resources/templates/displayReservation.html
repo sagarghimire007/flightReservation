@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+</head>
+<body>
+    <h2>Reservation Info : </h2>
+
+    <span
+            th:text="'Reservation to ' + ${reservation.passenger.firstName} +' '+ ${reservation.passenger.lastName}  + ' for flight ' +
+            ${reservation.flight.flightNumber} + ' is made successfull.'">
+    </span>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display FLights</title>
+</head>
+<body>
+    <h2>Flights Information : </h2>
+
+    <span th:if="${flights == null}">
+        <p th:text="No Records to Display..."></p>
+    </span>
+
+    <table th:if="${flights != null}">
+        <tr>
+            <th>S.N.</th>
+            <th>Airlines</th>
+            <th>Departure City</th>
+            <th>Arrival City</th>
+            <th>Departure Time</th>
+            <th></th>
+        </tr>
+
+        <tr th:each="flight : ${flights}">
+            <td th:text="${flightStat.count}"></td>
+            <td th:text="${flight.operatingAirlines}"></td>
+            <td th:text="${flight.departureCity}"></td>
+            <td th:text="${flight.arrivalCity}"></td>
+            <td th:text="${flight.estimatedDepartureTime}"></td>
+            <td><a th:href="@{'showCompleteReservation?id='+${flight.id}}">Select</a></td>
+        </tr>
+    </table>
+</body>
+</html>
